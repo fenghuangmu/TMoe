@@ -17,7 +17,7 @@ jobs:
     if: ${{ !startsWith(github.event.head_commit.message, '[skip ci]') }}
 
     steps:
-      - uses: actions/checkout@v3.3.1
+      - uses: actions/checkout@v3.3.0
         with:
           submodules: 'recursive'
           fetch-depth: 0
@@ -30,7 +30,7 @@ jobs:
           cache: gradle
 
       - name: Cache Gradle Dependencies
-        uses: actions/cache@v3.2.5
+        uses: actions/cache@v3.2.4
         with:
           path: |
             ~/.gradle/caches
@@ -41,7 +41,7 @@ jobs:
             gradle-deps
 
       - name: Cache Gradle Build
-        uses: actions/cache@v3.2.5
+        uses: actions/cache@v3.2.4
         with:
           path: |
             ~/.gradle/caches/build-cache-*
@@ -111,14 +111,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.3.1
+        uses: actions/checkout@v3.3.0
       - name: Clone Telegram Bot API
         run: |
           git clone --recursive https://github.com/tdlib/telegram-bot-api.git
           git status telegram-bot-api >> telegram-bot-api-status
       - name: Cache Bot API Binary
         id: cache-bot-api
-        uses: actions/cache@v3.2.5
+        uses: actions/cache@v3.2.4
         with:
           path: telegram-bot-api-binary
           key: CI-telegram-bot-api-${{ hashFiles('telegram-bot-api-status') }}
