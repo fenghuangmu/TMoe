@@ -1,5 +1,6 @@
 # TMoe
-#本仓库复刻于原作者
+
+本仓库复刻于原作者的仓库（https://github.com/cinit/TMoe）
 
 
 [![license](https://img.shields.io/github/license/cinit/TMoe.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
