@@ -25,4 +25,12 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-     
+
+    - name: Build with Gradle
+      run: ./gradlew build
+      
+    - name: Upload Release APK
+      uses: actions/upload-artifact@v3
+      with:
+           name: TMOE release
+           path: ./app/build/outputs/apk/release           path: ./app/build/outputs/apk/release      with:
