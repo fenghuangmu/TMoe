@@ -1,0 +1,25 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ "canary" ]
+  pull_request:
+    branches: [ "canary" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: set up JDK 18
+      with:
+        java-version: '18'
+        distribution: 'microsoft'
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Build with Gradle
+      run: ./gradlew build
